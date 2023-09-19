@@ -10,6 +10,7 @@ public class Main {
         System.out.println("你输入的整数是：" + num1);
         Main main = new Main();
         System.out.println("哈哈哈，git提交测试成功");
+        System.out.println("哈哈哈web上修改代码，pull测试成功");
     }
 
     Main(){
