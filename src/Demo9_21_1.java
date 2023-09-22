@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,7 @@ public class Demo9_21_1 {
         if (num<=0) {
             throw new RuntimeException("数据不合法[num>0]......");
         }
-        if (num%10==0) {
+        if (Objects.equals(num%10,0)) {
             num /= 10;
         }
         while (num>0){
