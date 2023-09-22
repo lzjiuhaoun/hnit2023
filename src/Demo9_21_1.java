@@ -34,4 +34,22 @@ public class Demo9_21_1 {
             num/=10;
         }
     }
+
+    /**
+     * 输出：1000以内的全部完数
+     */
+    public static void wanShu(Integer n){
+        for (int num = 1; num <= n; num++) {
+            int sum = 0;
+            for (int i = 1; i <= num/2; i++) {
+                if (num % i == 0) {
+                    sum += i;
+                }
+            }
+            if (sum == num) {
+                System.out.print(num+"\t");
+            }
+        }
+
+    }
 }
