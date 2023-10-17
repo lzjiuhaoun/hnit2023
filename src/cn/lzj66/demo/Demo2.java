@@ -13,8 +13,23 @@ import java.util.Random;
 public class Demo2 {
 
     public static void main(String[] args) {
-        String random = randomForNum(6);
-        System.out.println(random);
+        System.out.println(args[0]);
+        System.out.println(args[1]);
+        System.out.println(args[2]);
+        System.out.println(args[0]);
+        String str1 = "hello";
+        String str2 = "hello";
+        System.out.println(str1.equals(str2)); //true
+        StringBuffer str3 = new StringBuffer("hello");
+        System.out.println(str1.equals(str3)); //false
+        System.out.println(str1.contentEquals(str3)); //true
+        String str = new String("sdaf");
+        byte b = Byte.parseByte(str);
+        short i = Short.parseShort(str);
+        long l = Long.parseLong(str);
+        float v = Float.parseFloat(str);
+        double v1 = Double.parseDouble(str);
+
     }
 
     /**
