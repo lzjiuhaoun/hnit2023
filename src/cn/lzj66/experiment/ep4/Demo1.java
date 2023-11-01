@@ -55,30 +55,23 @@ public class Demo1 {
 
     //实验3  统计英文单词
     public static void tongji() {
-        try (Scanner scanner = new Scanner(new File("D:\\SJX\\I have a dream .txt"));) {
+        try (Scanner scanner = new Scanner(new File("D:\\SJX\\I have a dream .txt"))) {
             Map<String, Integer> wordCountMap = new HashMap<>();
             int total = 0; //总单词数量（包括重复单词）
             int count = 0; //不同单词数量（不包括重复单词）
             while (scanner.hasNext()) {
                 String word = scanner.next().toLowerCase();
                 total++;
-                if (wordCountMap.containsKey(word)) { //单词已经出现
-                    wordCountMap.put(word, wordCountMap.get(word) + 1);
-                } else { //单词从未出现
-                    wordCountMap.put(word, 1);
-                    count++;
-                }
+                wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
             }
             //根据单词频率排序(使用stream流)
             List<Map.Entry<String, Integer>> wordList = new ArrayList<>(wordCountMap.entrySet());
             wordList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
             //输出结果
-            System.out.println("共有" +total + "个英文单词");
-            System.out.println("有" +count+"个互不相同的单词");
+            System.out.println("共有" + total + "个英文单词");
+            System.out.println("有" + count + "个互不相同的单词");
             System.out.println("按出现频率排序：");
-            for (Map.Entry<String, Integer> entry : wordList) {
-                System.out.print(entry.getKey() + "：" + entry.getValue()+"\t");
-            }
+            wordList.forEach(entry -> System.out.print(entry.getKey() + "：" + entry.getValue() + "\t"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
