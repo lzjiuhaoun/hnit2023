@@ -3,7 +3,7 @@ package cn.lzj66.demo;
 import java.util.Random;
 
 /**
- * ClassName: Demo2
+ * ClassName: Service
  * Package: cn.lzj66.demo
  * Description:
  *
