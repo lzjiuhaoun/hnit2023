@@ -3,7 +3,7 @@ package cn.lzj66.algorithm.shiyan1;
 import java.util.Scanner;
 
 /**
- * ClassName: Demo2
+ * ClassName: Service
  * Package: cn.lzj66.algorithm.shiyan1
  * Description:
  *
