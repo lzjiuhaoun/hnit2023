@@ -21,12 +21,19 @@ public class Demo1 {
         int count = 1;
         System.out.println("键盘练习（输入#结束程序）");
         System.out.println("输入显示的字母（回车）");
-        xianShiChar.start();
-        shuruChar.start();
-        while (in != '#') {
 
-                xianShiChar.suspend();
-                if (in == out) {
+        while (in != '#') {
+            try {
+                xianShiChar.start();
+                shuruChar.start();
+                xianShiChar.wait();
+                shuruChar.wait();
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (in == out) {
                     System.out.println("输入对了，目前分数" + (++count));
                 } else {
                     System.out.println("输入错了，目前分数" + count);
