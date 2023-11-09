@@ -72,8 +72,8 @@ public class Demo1 {
     public static void StringArraySort() {
         List<String> list = new ArrayList<String>();
         Collections.addAll(list, "12", "6", "24", "38", "8", "42");
-//        list = list.stream().sorted(Comparator.comparing(Integer::parseInt)).collect(Collectors.toList());
-//        list = list.stream().sorted(Comparator.comparing((str) -> Integer.parseInt(str))).collect(Collectors.toList());
+        list = list.stream().sorted(Comparator.comparing(Integer::parseInt)).collect(Collectors.toList());
+        list = list.stream().sorted(Comparator.comparing((str) -> Integer.parseInt(str))).collect(Collectors.toList());
         list = list.stream().sorted(Comparator.comparing(Integer::parseInt, Collections.reverseOrder())).collect(Collectors.toList());
         System.out.println(list);
     }
