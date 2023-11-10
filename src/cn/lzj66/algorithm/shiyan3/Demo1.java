@@ -21,8 +21,8 @@ public class Demo1 {
 //        int C = 8;
 //        int maxVal = beibao(w, v, C);
 //        System.out.println("背包能够装下的最大价值为：" + maxVal);
-//        int[] arr = {1,2,3,4,-4,-12,30,4,-100,3030,-23213,213213,45324,423,-1,0};
-//        System.out.println("arr的最大子序列和为："+isMaxSum(arr));
+//        int[] arr = {1,2,3,,-4,-12,30,4,-100,3030,-23213,213213,45324,423,-1,0};
+////        System.out.println("4arr的最大子序列和为："+isMaxSum(arr));
     }
 
     /**

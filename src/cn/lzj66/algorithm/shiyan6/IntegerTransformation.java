@@ -1,7 +1,6 @@
 package cn.lzj66.algorithm.shiyan6;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 /**
  * ClassName: IntegerTransformation
@@ -12,44 +11,51 @@ import java.util.Deque;
  * @Create 2023/11/10 17:02
  */
 public class IntegerTransformation {
-    public static void main(String[] args) {
-        int n = 15; // 初始整数
-        int m = 4;  // 目标整数
-        branch(n, m);
-    }
-
     static class Node {
         int value;
-        String path;
+        int depth;
 
-        Node(int value, String path) {
+        public Node(int value, int depth) {
             this.value = value;
-            this.path = path;
+            this.depth = depth;
         }
     }
 
-    public static void branch(int n, int m) {
-        Deque<Node> queue = new ArrayDeque<>();
-        queue.add(new Node(n, ""));
+    public static int minOperations(int n, int m) {
+        Queue<Node> queue = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
+
+        queue.offer(new Node(n, 0));
+        visited.add(n);
 
         while (!queue.isEmpty()) {
             Node node = queue.poll();
 
             if (node.value == m) {
-                System.out.println("找到路径: " + node.path);
-                return;
+                return node.depth;
             }
 
-            if (node.value < m) {
-                String path1 = node.path + "f"; // 乘3操作
-                queue.add(new Node(node.value * 3, path1));
+            int fValue = 3 * node.value;
+            int gValue = node.value / 2;
+
+            if (fValue <= m * 2 && !visited.contains(fValue)) {
+                queue.offer(new Node(fValue, node.depth + 1));
+                visited.add(fValue);
             }
-            if (node.value % 2 == 0) {
-                String path2 = node.path + "g"; // 除2操作
-                queue.add(new Node(node.value / 2, path2));
+
+            if (gValue > 0 && !visited.contains(gValue)) {
+                queue.offer(new Node(gValue, node.depth + 1));
+                visited.add(gValue);
             }
         }
 
-        System.out.println("无法找到路径");
+        return -1; // 表示无法将整数n变成m
+    }
+
+    public static void main(String[] args) {
+        int n = 15;
+        int m = 4;
+        int minOperations = minOperations(n, m);
+        System.out.println("最少操作次数: " + 4);
     }
 }
