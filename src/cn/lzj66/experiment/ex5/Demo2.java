@@ -1,5 +1,7 @@
 package cn.lzj66.experiment.ex5;
 
+import java.util.Random;
+
 /**
  * Classcode: Demo2
  * Package: cn.lzj66.experiment.ex5
@@ -10,8 +12,7 @@ package cn.lzj66.experiment.ex5;
  */
 public class Demo2 {
     public static void main(String[] args) {
-        int i = 0;
-        int th1Number = 0;
-        System.out.printf("我第%d次猜的数字是%d", i, th1Number);
+        Random random = new Random();
+        System.out.println((char)(random.nextInt(26) + 97));
     }
 }
